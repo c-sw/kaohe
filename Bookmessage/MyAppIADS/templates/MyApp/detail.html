@@ -1,0 +1,15 @@
+{% extends 'MyApp/base0.html' %}
+{% load staticfiles %}
+{% block middle %}
+
+    <div class="row">
+    <div class="col-md-3"><img src="{% static id %}" style="height: 450px;width: 350px;"></div>
+    <div class="col-md-8">
+    <p><b> 标题: </b>{{ book_title }}</p>
+    <p><b> 价格: RMB </b>{{ book_price }}</p>
+    <p><b> 图书出版社: </b>{{ book_publisher }}</p>
+    <p><b> 网站: </b><a style="color: #333333" href="{{ book_publisher.website}}" >{{ book_publisher.website}}</a> </p>
+    </div>
+    </div>
+
+{% endblock %}

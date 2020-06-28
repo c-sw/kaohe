@@ -1,0 +1,15 @@
+{% extends 'MyApp/base0.html' %}
+
+{% block body_block %}
+    <form action="{% url 'MyAppIADS:findbooks' %}" method="post">
+        {% csrf_token %}
+        <div class="row" style="margin-top: 5%">
+
+            <div class="col-md-3"><label style="font-size: 30px">类型</label>{{ form.category }}</div>
+            <div class="col-md-3"><label style="font-size: 30px">最高价格</label>{{ form.max_price }}</div>
+
+        </div>
+        <input type="submit" name="submit1" class="btn btn-dark" value="Find Books" />
+    </form>
+
+{% endblock %}

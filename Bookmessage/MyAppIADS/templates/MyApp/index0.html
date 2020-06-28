@@ -1,0 +1,23 @@
+{% extends 'MyApp/base0.html' %}
+
+{% block body_block %}
+
+    {% if booklist %}
+        <h2>List of Books</h2>
+        <ol style="font-size: 29px; color: gray">
+            {% for book  in booklist %}
+                <li> <a style="color: #555555" href="{% url 'MyAppIADS:detail' book_id=book.id %}">{{book.title}}</a> </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available books!</strong>
+    {% endif %}
+    {% if last_login %}
+    <p style="color: #555555;" >Your last login was at {{ last_login }}</p>
+    {% else %}
+    <p style="color: #555555" >Your last login was more than a hour ago</p>
+    {% endif %}
+
+{% endblock %}
+{% block back %}{% endblock %}

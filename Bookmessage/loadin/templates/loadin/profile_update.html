@@ -1,0 +1,44 @@
+{% block content %}
+    {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/p.css' %}">
+<style type="text/css">
+.shdd1{
+        background-image: url("{% static 'img1/5.jpg' %}" );
+}
+</style>
+<div class="shdd1">
+    <h2><li>Account Info</li></h2>
+<div class="sh21">
+<ul>
+    <li>用户名: {{ user.username }} </li>
+    <li>邮箱: {{ user.email }} </li>
+
+</ul>
+</div>
+<h2><li>Update My Profile</li></h2>
+
+<div class="form-wrapper">
+   <form method="post" action="" enctype="multipart/form-data">
+   <div class="sh212">
+      {% csrf_token %}
+      {% for field in form %}
+           <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+             <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+           </div>
+        {% endfor %}
+   </div>
+      <div class="button-wrapper submit">
+         <input type="submit" value="Update" class="button1"/>
+      </div>
+   </form>
+</div>
+<div class="sh2123">
+<a href="{% url 'loadin:logout' %}"><h3>Logout</h3></a>
+<a href="{% url 'loadin:pwd_change' user.id %}"><h3>Password change</h3></a>
+{% endblock %}
+    </div>
+</div>

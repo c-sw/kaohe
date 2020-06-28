@@ -1,0 +1,6 @@
+{% extends 'MyApp/base0.html' %}
+{% block title %} Logout page{% endblock %}
+{% block body_block %}
+    <form action="{% url 'loadin:logout' %}" method="post">
+    </form>
+{% endblock %}

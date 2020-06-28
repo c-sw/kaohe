@@ -1,0 +1,38 @@
+{% load staticfiles %}
+{% block content %}
+
+<style type="text/css">
+.sh{
+        background-image: url("{% static 'img1/2.jpg' %}" )  ;
+}
+</style>
+<link rel="stylesheet" href="{% static 'css/button.css' %}">
+<link rel="stylesheet" href="{% static 'css/hhh.css' %}">
+
+{% if message %}
+ {{ message }}
+{% endif %}
+    <div class="sh jk"> </div>
+<div class="sh1 div1 " >
+<div class="form-wrapper " >
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+    <h3 class="jl">会员登录</h3>
+      {% for field in form %}
+           <div class="fieldWrapper  " >
+        {{ field.errors }}
+       <h4 >{{ field.label_tag }} {{ field }}</h4>
+        {% if field.help_text %}
+             <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+           </div>
+        {% endfor %}
+      <div class="button-wrapper submit" >
+         <input type="submit" value="Login  " class="wrap" id="name" style="background-color: skyblue"/>
+         <button type="submit" onclick="location.href='/accounts/register'" class="bin1" style="background-color: skyblue">Register</button>
+      </div>
+   </form>
+</div>
+</div>
+ <div class="sh"> </div>
+{% endblock %}

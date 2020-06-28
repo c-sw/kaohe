@@ -1,0 +1,39 @@
+/*本页为注册页面的css*/
+
+.jl{
+ width: 100px;
+ height: 25px;
+ margin-top: -50px;
+ margin-left: 95px;
+ margin-right: auto;
+ position: absolute;
+}
+
+.mn{
+    height: 600px;
+    width: 1000px;
+    padding:20px;
+     margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid #000a09;
+    text-align:center;
+    background-color: aliceblue;
+}
+
+.wrap5{
+ width: 60px;
+ height: 30px;
+ margin-top: 15px;
+ margin-left: auto;
+ margin-right: 5px;
+ position: relative;
+}
+.wrap6{
+ width: 60px;
+ height: 30px;
+ margin-top: 15px;
+ margin-left: 10px;
+ margin-right: auto;
+ position: relative;
+}

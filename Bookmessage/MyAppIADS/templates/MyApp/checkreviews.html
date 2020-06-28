@@ -1,0 +1,6 @@
+{% extends 'MyApp/base0.html' %}
+{% block title %} 书评 {% endblock %}
+<h1>{% block myhdg %}Reviews {% endblock %}</h1>
+{% block body_block %}
+            <h2>The Average Rating Review of {{ Book.title }} as requested by {{ request.user.username }}  is {{ average }} of {{ count }} reviews </h2>
+{% endblock %}

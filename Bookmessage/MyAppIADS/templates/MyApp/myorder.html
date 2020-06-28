@@ -1,0 +1,26 @@
+{% extends 'MyApp/base0.html' %}
+{% block body_block %}
+<div>
+	<br>
+	<h2>{{ User.name }}</h2>
+	<div class="row"> <p>Total Order: {{ order.count }}</p></div>
+	<div class="row">
+    {% if order %}
+        {% for o in order %}
+	        <div class="row">
+                <p>Book(s) Name:
+                {% for bookd in o.books.all %}
+                    {{ bookd.title }} ,
+                {% endfor %}
+                </p>
+                <p>
+                Order Type: {{ o.get_order_type_display }} &nbsp&nbsp&nbsp
+ 		        Order Date: {{ o.order_date}}</p>
+	        </div>
+	{% endfor %}
+    {% else %}
+	    <h2>Oops! You dont have any order right now..</h2>
+	{% endif %}
+    </div>
+</div>
+{% endblock %}

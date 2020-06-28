@@ -1,0 +1,10 @@
+
+{% extends 'MyApp/base0.html' %}
+{% block middle %}
+        <a class="leftdiv" style="text-decoration: none;" href={% url 'loadin:login' %}>
+        Login
+        </a>
+        <a class="rightdiv" style="text-decoration: none;" href={% url 'loadin:register' %}>
+        Signup
+        </a>
+{% endblock %}

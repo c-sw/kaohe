@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+        <title>eBook APP - {% block title %}Welcome!{% endblock %}</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div>
+            <h1>{% block myhdg %}Hello {{ user.first_name }} {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+        </div>
+        <hr />
+        <div>
+            <ul>
+                <li class="hbar1"><a href="/MyAppIADS/about/">Find out about this site</a></li>
+                <li class="hbar1"><a href = "{% url 'MyAppIADS:index' %}">Click here to return to main page</a><br/></li>
+                <li class="hbar1"><a href = "{% url 'MyAppIADS:findbooks' %}">Click here to Find a book</a><br/></li>
+                <li class="hbar1"><a href = "{% url 'MyAppIADS:placeorder' %}">Click here to Place an Order</a><br/></li>
+                <li class="hbar1"><a href = "{% url 'MyAppIADS:my_order' %}">CLick her to check your Orders</a><br/></li>
+{#                <li class="hbar1"><a href = "{% url 'MyAppIADS:review' %}">Click here to leave a Review</a><br/></li>#}
+{#                <li class="hbar1"><a href = "{% url 'MyAppIADS:User_Ratings' %}">Top 5 Books</a><br/></li>#}
+                <li class="hbar1"><a href = "{% url 'loadin:logout' %}">Logout</a><br/></li>
+
+            </ul>
+        </div>
+    {% else %}
+        <div>
+        <h1 class="container">{% block myhdg1 %}Hello New User {% endblock %}</h1>
+            <div class="container">{% block body_block1 %} Please Login or Sign up</div>
+        </div>
+        <div>
+            <ul>
+            <li class="hbar1"><a href="{% url 'loadin:login' %}"> Login</a></li>
+            <li class="hbar1"><a href="{% url 'loadin:register' %}"> Sign Up</a></li>
+            </ul>
+        </div>
+        <hr/>
+         {% endblock %}
+    {% endif %}
+</body>
+</html>
+

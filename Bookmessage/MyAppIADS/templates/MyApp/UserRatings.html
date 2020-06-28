@@ -1,0 +1,13 @@
+{% extends 'MyApp/base0.html' %}
+
+{% block body_block %}
+    <h1>The Top 5 Books From User Ratings are:</h1>
+    <b> Book Rating and Title are: </b>
+    {% for r in Rating %}
+        <ol>
+        {% for x in r %}
+        {{ x }}
+        {% endfor %}
+        </ol>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4796e54c8b.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{% static 'css/component.css' %}">
+        <link rel="stylesheet" href="{% static 'css/default1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>A Bookstore</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="None" />
+		<meta name="author" content="Frank, Deepraj, Priyanka" />
+	</head>
+	<body>
+		<div class="container">
+			<header class="clearfix">
+				<h1 style="color: #333333;font-weight: bolder" class="main1" >The Bookstore<span style="color: gray; font-weight: bold" >欢迎来到我的书店</span></h1>
+			</header>
+            {% if user.is_authenticated %}
+                {% if user.member.image %}
+                <div class="row" style="margin-left: 10%">
+                    <div class="col-md-1">
+                        <img src='{{ user.member.image.url }}' class="rounded-circle" style="height: 80px;width: 80px;">
+                    M</div>
+                 {% endif %}
+                <div class="col-md-3"> <p style="padding-top: 22px">Hello {{ user.first_name }}</p></div></div>
+            {% endif %}
+			<div class="main" >
+
+
+                {% block middle %}
+                <div class="side">
+
+						<ul>
+{#                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:checkreviews' %} ><label><i class="fas fa-book"></i></label> 查看 评论</a></li>#}
+                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:placeorder' %}><label><i class="fas fa-shopping-cart"></i></label> 订单 </a></li>
+                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:my_order' %}><label><i class="fas fa-shopping-cart"></i></label> 我的订单 </a></li>
+                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:about_page' %}><label><i class="fas fa-info-circle"></i></label> 关 于 </a></li>
+                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:review' %}><label><i class="fas fa-pen-square"></i></label> 写 评论 </a></li>
+                            <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:findbooks' %}><label><i class="fas fa-search"></i></label> 搜索书 </a></li>
+                            {% if user.is_authenticated %}
+                                <li style="padding: 10px;"><a class="dropdown-item" href={% url 'loadin:logout' %}><label><i class="fas fa-sign-out-alt"></i></label> 退出</a></li>
+                            {% else %}
+                                <li style="padding: 10px;"><a class="dropdown-item" href={% url 'MyAppIADS:loginpage' %}><label><i class="fas fa-sign-out-alt"></i></label> 登录/注册</a></li>
+                            {% endif %}
+                        </ul>
+				</div>
+                <div style="font-size: 15px;padding: 0 1em;margin: 0;line-height: 1.6;float: right;width: 70%;">
+                {% block body_block %}
+                {% endblock %}
+                </div>
+                {% endblock %}
+                {% block back %}
+                <a href={% url 'MyAppIADS:index' %} style="color:#333333" class="main2">返 回 主 页</a>
+                {% endblock %}
+			</div>
+		</div><!-- /container -->
+	</body>
+</html>

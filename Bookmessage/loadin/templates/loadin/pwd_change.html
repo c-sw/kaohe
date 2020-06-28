@@ -1,0 +1,42 @@
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/hhh.css' %}">
+
+<style type="text/css">
+    .qw{
+    background-image: url("{% static 'img1/6.jpg' %}" )  ;
+    }
+</style>
+<div class="qw">
+<div class="mn " >
+<h2>Change Password</h2>
+{% if message %}
+ {{ message }}
+{% endif %}
+<div class="form-wrapper">
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% for field in form %}
+         <table border="2" align="center" width="1000" >
+           <div class="fieldWrapper">
+           <tr >
+        {{ field.errors }}
+         <td><h3>{{ field.label_tag }} </h3> <h3>{{ field }}</h3></td>
+        </tr>
+        {% if field.help_text %}
+             <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+
+           </div>
+        {% endfor %}
+   </table>
+      <div class="button-wrapper submit" >
+         <input type="submit" value="Submit" />
+      </div>
+   </form>
+    <a href="/accounts/logout/"><h3>Logout</h3></a>
+<a href="{% url 'loadin:profile' user.id %}"><h3>Return</h3></a>
+</div>
+{% endblock %}
+ </div>
+</div>

@@ -1,0 +1,24 @@
+{% extends 'MyApp/base0.html' %}
+{% block title %} Results page{% endblock %}
+<h1>{% block myhdg %}Hello {{ name }} {% endblock %}</h1>
+{% block body_block %}
+     {% if booklist %}
+         {% if category %}
+            <h2>List of Books in {{ category }} under ${{ max_price }} are</h2>
+             <ol>
+                {% for book  in booklist %}
+                    <li> <a href="{% url 'MyAppIADS:detail' book_id=book.id %}">{{book.title}} in {{ book.get_category_display}} $ {{ book.price }}</a> </li>
+                {% endfor %}
+             </ol>
+        {% else %}
+             <h2>List of Books under ${{ max_price }} are</h2>
+             <ol>
+                {% for book  in booklist %}
+                    <li> <a href="{% url 'MyAppIADS:detail' book_id=book.id %}">{{book.title}} $ {{ book.price }}</a> </li>
+                {% endfor %}
+             </ol>
+        {% endif %}
+    {% else %}
+        <strong>Plesase select a book</strong>
+    {% endif %}
+{% endblock %}

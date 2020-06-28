@@ -1,0 +1,30 @@
+/*本页为信息页面的css*/
+.sh21{
+    height: 150px;
+    width: 300px;
+    border:1px solid #000a09;
+    background-color: aliceblue;
+}
+
+.sh212{
+    height: 200px;
+    width: 300px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border:1px solid #000a09;
+    background-color: aliceblue;
+
+}
+
+.sh2123{
+    height: 50px;
+    width: 300px;
+    margin-top: 60px;
+    background-color: white;
+}
+
+.button1{
+   width: 88px;
+    height: 50px;
+    font-size: 20px;
+}

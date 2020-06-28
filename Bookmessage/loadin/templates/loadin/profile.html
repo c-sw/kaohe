@@ -1,0 +1,35 @@
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/p.css' %}">
+<style type="text/css">
+.shdd{
+        background-image: url("{% static 'img1/5.jpg' %}" );
+}
+</style>
+    <div class="shdd">
+<div class="sh21">
+<h2>账户信息</h2>
+<ul>
+    <li>用户名: {{ user.username }} </li>
+    <li>邮箱: {{ user.email }} </li>
+</ul>
+</div>
+<div class="sh212">
+<h2>我的信息</h2>
+<ul>
+    <li>姓: {{ user.last_name }} </li>
+    <li>名: {{ user.first_name }} </li>
+    <li>组织: {{ user.profile.org }} </li>
+    <li>电话: {{ user.profile.telephone }} </li>
+    <li>地址: {{ user.profile.address }} </li>
+</ul>
+</div>
+{% if user.is_authenticated %}
+
+<a href="{% url 'loadin:profile_update' user.id %}"><h3>Edit</h3></a><a href="{% url 'loadin:pwd_change' user.id %}"><h3>Change Password </h3></a>
+<a href="{% url 'loadin:logout' %}"><h3>Logout</h3></a>
+<a href="{% url 'MyAppIADS:index' %}"><h3>Return</h3></a>
+
+{% endif %}
+</div>
+{% endblock %}

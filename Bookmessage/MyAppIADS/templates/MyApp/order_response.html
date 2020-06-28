@@ -1,0 +1,13 @@
+{% extends 'MyApp/base0.html' %}
+{% block title %} Order Response page{% endblock %}
+<h1>{% block myhdg %}Order Response {% endblock %}</h1>
+
+{% block body_block %}
+            <h2>List of Books ordered by {{ order.member }}  are</h2>
+             <ol>
+                {% for b in books %}
+                    <li> {{b}} </a> </li>
+                {% endfor %}
+             </ol>
+            <p>{{ m }}</p>
+{% endblock %}

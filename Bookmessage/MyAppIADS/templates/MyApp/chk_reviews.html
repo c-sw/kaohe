@@ -1,0 +1,14 @@
+{% extends 'MyApp/base0.html' %}
+
+{% block body_block %}
+        <div class="row"><p style="font-size: 35px;">书评</p></div>
+        <div class="row">
+        <ol>
+            {% for book  in booklist %}
+                <li > <a style="color: #333333" href="{% url 'MyAppIADS:chk_reviews' book_id=book.id %}">{{book.title}}</a> </li>
+            {% endfor %}
+        </ol>
+        </div>
+
+
+{% endblock %}

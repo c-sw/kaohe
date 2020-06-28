@@ -1,0 +1,52 @@
+/*本页*/
+.sh1{
+    height: 90px;
+    width: 300px;
+    padding:100px;
+    margin-left: 1160px;
+    margin-right: auto;
+    margin-top: -450px;
+    border:5px solid #000a09;
+    text-align:center;
+    background-color: aliceblue;
+}
+
+.wrap{
+ width: 60px;
+ height: 25px;
+ margin-top: 15px;
+ margin-left: auto;
+ margin-right: 5px;
+ position: relative;
+}
+
+.bin1{
+ width: 60px;
+ height: 25px;
+margin-top: 15px;
+ margin-left: 10px;
+ position: absolute;
+}
+.div1{
+display: -webkit-flex;
+-webkit-align-items: center;
+align-items: center;//垂直居中
+-webkit-justify-content: center;
+justify-content: center;//水平居中
+}
+.div2{
+display: -webkit-flex;
+-webkit-align-items: center;
+align-items: center;//垂直居中
+-webkit-justify-content: center;
+justify-content: center;//水平居中
+}
+.jk{
+        width: 2000px;
+        height: 600px;
+        margin-top: 100px;
+        margin-left: -10px;
+        margin-right: auto;
+}
+
+
